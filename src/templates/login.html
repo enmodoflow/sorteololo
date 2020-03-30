@@ -3,7 +3,16 @@
 <!-- MAIN BLOCK -->
 {% block main %}
 <form action="/" method="post">
-<input type="text" name="nick" id="">
-<button type="submit">Enviar</button>
+    <div style="display:flex; justify-content:center; text-align:center;">
+        <div style="max-width:90%">
+    <img src="/static/img/sorteo-png-5.png" alt="">
+    <h3>Para participar en el sorteo ingrese aqui su email, ¡Participar es gratis!</h3>
+<input type="email" name="nick" class="input is-rounded" id="" placeholder="Tu email">
+<div style="padding:9%;">
+<button type="submit" class="button is-link">Enviar</button>
+</div>
 </form>
+<h3>{{ texto }}</h3>
+</div>
+</div>
 {% endblock %}
