@@ -43,6 +43,7 @@ def juego():
     nuevo_usuario = session['nuevo']
     fecha_hoy = datetime.now()
     tiempo_transcurrido = list(mongo.collection.find({"email":email}))
+    texto2 = ''
     for i in tiempo_transcurrido:
         fecha_sorteo = i['fecha']
         booleano = logica.calcular30dias(fecha_sorteo)
@@ -64,7 +65,18 @@ def juego():
     super_sorteo = list(mongo.collection.find({"super_premio":"super_premio", "mes": fecha_hoy.month}))
     for i in super_sorteo:
         lista_super_sorteo.append([i['email'], i["premio_mensual"]])
-    return render_template('index.html', texto=texto, lista_super_sorteo=lista_super_sorteo)
+    if fecha_hoy.day == 28:
+        for i in super_sorteo:
+            if i['email'] == email:
+                lista3 = ['Un Mitsubishi ASX', 'Un Ferrari Enzo', 'Un Lamborgini Gallardo', 'Un Nissan 370Z']
+                lista_final_si_toca = ['true', 'false', 'false', 'true']
+                num_random3 = random.randrange(3)
+                ha_tocado = lista_final_si_toca[num_random3]
+                if ha_tocado == 'true':
+                    texto2 = (f'¡Habias ganado el premio mensual y has participado día 28! Y te vas a tu casa con {lista3[num_random3]}')
+                else:
+                    texto2 = (f'¡Habias ganado el premio mensual y has participado día 28! Pero no ha habido suerte, inténtelo el mes que viene')
+    return render_template('index.html', texto=texto, lista_super_sorteo=lista_super_sorteo, texto2=texto2)
 
 
 if __name__ == "__main__":

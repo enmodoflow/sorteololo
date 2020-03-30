@@ -2,28 +2,31 @@
 
 <!-- MAIN BLOCK -->
 {% block main %}
-<div style="display:flex; justify-content:center; text-align:center;">
+<div class="todo">
     <div style="max-width:90%">
 <img src="/static/img/sorteo-png-5.png" alt="">
     <h1>{{ texto }}</h1>
+    <h1>{{ texto2 }}</h1>
     <hr>
 </div>
 </div>
-<div style="display:flex; justify-content:center; text-align:center;">
+<div class="todo">
     <div style="max-width:90%">
     <h1><strong>Clasificados para el super premio final de este mes</strong></h1>
 </div>
 </div>
+<br>
 {% for i in lista_super_sorteo %}
-<div style="display:flex; justify-content:center; text-align:center;">
+<div class="todo2">
     <div style="max-width:90%">
 
-        <h3><strong>Usuario: </strong> {{ i.0 }}</h3>
-        <h3><strong>Premio mensual: </strong> {{ i.1 }}</h3>
+        <h3><strong style="color:darkslategrey">Usuario: </strong> {{ i.0 }}</h3>
+        <h3><strong style="color:darkslategrey">Premio mensual: </strong> {{ i.1 }}</h3>
 </div>
 </div>
+<br>
 {% endfor %}
-<div style="display:flex; justify-content:center; text-align:center;">
+<div class="todo">
     <div style="max-width:90%">
 <a href="/">Volver</a>
 </div>
