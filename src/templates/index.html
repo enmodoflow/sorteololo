@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+<!-- MAIN BLOCK -->
+{% block main %}
+<div style="display:flex; text-align: center; justify-content:center;">
+    <h1 style="font-weight:bold">Amador el Comparador</h1>
+</div>
+<hr>
+{% for i in lista %}
+    <div class="todo">
+    <div style="justify-content:center">
+        <img class="imagen" src="/static/img/{{ i.4 }}" alt="">
+        <h3><strong>Título</strong> {{ i.0 }}</h3>
+        <h3><strong>Descripción:</strong> {{ i.1 }}</h3>
+        <h3><strong>Alquiler:</strong> {{ i.2 }}</h3>
+        <h3><strong>Precio:</strong> {{ i.3 }}</h3>
+    </div>
+</div>
+    <hr>
+    {% endfor %}
+
+{% endblock %}

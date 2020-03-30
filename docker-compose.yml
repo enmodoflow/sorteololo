@@ -1,0 +1,11 @@
+version: '3'
+
+services: 
+    app:
+        build: .
+        image: scrapingUltimaHora
+        container_name: scrapingUltimaHora
+        ports:
+            - '5005:5000'
+        volumes:
+            - ./src:/app
